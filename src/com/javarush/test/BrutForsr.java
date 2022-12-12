@@ -14,18 +14,19 @@ public class BrutForsr {
        // System.out.println("Записывает, в целевой объект все незаписанные данные.");
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\textnew.txt"))) {
             StringBuilder builder = new StringBuilder();
-            
-               for (int j = 1; j < Shifr.symbolForShifr.length(); j++) {
+                for (int j = 0; j < Shifr.symbolForShifr.length(); j++) {
                     for (int i = 0; i < text.length(); i++) {
                         builder.append(String.valueOf(Shifr.sifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
-                        String result = builder.toString();
-                        System.out.print(result);
-             bufferedWriter.write(result, 0, result.length());
-             bufferedWriter.flush();
-
-                }
-
-            }
+                    }
+                    String result = builder.toString();
+                if (result.endsWith(".")) {
+                    System.out.print(result);
+                    bufferedWriter.write(result, 0, result.length());
+                    bufferedWriter.flush();
+                } else {
+                       continue;
+                    }
+               }
         }
     }
 }
