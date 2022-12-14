@@ -20,7 +20,7 @@ public class BrutForsr {
                     }
                     String result = builder.toString();
                     builder.delete(0, result.length());
-                    //System.out.println(result.length());
+
 
                 if (result.contains(" ") && result.endsWith(".") && result.contains("объект")) {
                     System.out.print(result);
