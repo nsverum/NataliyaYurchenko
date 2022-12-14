@@ -19,7 +19,10 @@ public class BrutForsr {
                         builder.append(String.valueOf(Shifr.sifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
                     }
                     String result = builder.toString();
-                if (result.endsWith(".")) {
+                    builder.delete(0, result.length());
+                    //System.out.println(result.length());
+
+                if (result.contains(" ") && result.endsWith(".") && result.contains("объект")) {
                     System.out.print(result);
                     bufferedWriter.write(result, 0, result.length());
                     bufferedWriter.flush();

@@ -11,7 +11,7 @@ public class DeShifr {
             String text = Files.readString(path);
             //String text = "тулезх, нсшгрлм!";
             System.out.println(text);
-            int key = 3;
+            int key = 5;
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text1.txt")))
             {
