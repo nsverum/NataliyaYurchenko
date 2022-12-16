@@ -16,17 +16,18 @@ public class BrutForsr {
             StringBuilder builder = new StringBuilder();
                 for (int j = 0; j < Shifr.symbolForShifr.length(); j++) {
                     for (int i = 0; i < text.length(); i++) {
-                        builder.append(String.valueOf(Shifr.sifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
+                        builder.append(String.valueOf(Shifr.shifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
                     }
                     String result = builder.toString();
                     builder.delete(0, result.length());
-
-
-                if (result.contains(" ") && result.endsWith(".") && result.contains("объект")) {
+                    char ch = result.charAt(0);
+                for (int i = 0; i < result.length()-1; i++)
+                  if (result.charAt(i)==',' && result.charAt(i+1)==' '){
+                     if  (result.contains(" ") && result.endsWith(".") && result.contains("объект") && !Character.isLowerCase(ch) &&!Character.isUpperCase(result.charAt(text.length()-1))) {
                     System.out.print(result);
                     bufferedWriter.write(result, 0, result.length());
                     bufferedWriter.flush();
-                } else {
+                } }else {
                        continue;
                     }
                }
