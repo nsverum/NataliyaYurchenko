@@ -8,8 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Shifr {
-    public static final String symbolForShifr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя ,!.";
-    public static final String upSymbolForShifr = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ,!.";
+    public static final String symbolForShifr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя ,!.-?:";
+    public static final String upSymbolForShifr = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ,!.-?:";
+    public static final int key = 5;
+
 
     public static char shifrText(char symbol, int key) {
         if (symbolForShifr.indexOf(symbol) != -1){
@@ -24,8 +26,8 @@ public class Shifr {
     public static String code() throws IOException {
         Path path = Path.of("D:\\Nataliya\\myprogect\\project1\\text.txt");
         String text = Files.readString(path);
-        System.out.println(text);
-        int key = 5;
+        System.out.println("Оригинал текста - " + text);
+        //int key = 5;
         String text2 = null;
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text2.txt"))) {
             for (int i = 0; i < text.length(); i++) {
