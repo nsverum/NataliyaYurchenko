@@ -26,7 +26,7 @@ public class Shifr {
     public static String code() throws IOException {
         Path path = Path.of("D:\\Nataliya\\myprogect\\project1\\text.txt");
         String text = Files.readString(path);
-        System.out.println("Оригинал текста - " + text);
+        System.out.println("Оригинал текста: " + text);
         //int key = 5;
         String text2 = null;
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text2.txt"))) {

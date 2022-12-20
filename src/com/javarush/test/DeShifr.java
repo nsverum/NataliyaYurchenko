@@ -9,7 +9,7 @@ public class DeShifr {
     public static String deCode() throws IOException {
             Path path = Path.of("D:\\Nataliya\\myprogect\\project1\\text2.txt");
             String text = Files.readString(path);
-            System.out.println("Зашифрованный текст - " + text);
+            System.out.println("Зашифрованный текст: " + text);
         //  int key = 5;
         String text2 = null;
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text1.txt"))){

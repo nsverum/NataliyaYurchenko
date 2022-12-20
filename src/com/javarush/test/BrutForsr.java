@@ -23,9 +23,9 @@ public class BrutForsr {
                 builder.delete(0, result.length());
                 //for (int i = 0; i < result.length() - 1; i++) {
                  //   if (!(result.charAt(i) != ',' || result.charAt(i + 1) != ' ')) {
-                        if (isaBoolean(text, result)) {
+                        if (checkConditions(text, result)) {
                             System.out.println("Ключ = " + j);
-                            System.out.print("Результат - " + result);
+                            System.out.print("Результат: " + result);
                             bufferedWriter.write(result, 0, result.length());
                             bufferedWriter.flush();
                         }
@@ -34,7 +34,7 @@ public class BrutForsr {
         return false;
     }
 
-    private static boolean isaBoolean(String text, String result) {
+    private static boolean checkConditions(String text, String result) {
         return !(!result.contains(" ") || !result.endsWith(".") || Character.isLowerCase(result.charAt(0)) || Character.isUpperCase(result.charAt(text.length() - 1)));
     }
 
