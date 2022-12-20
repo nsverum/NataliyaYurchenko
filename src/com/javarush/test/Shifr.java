@@ -21,19 +21,21 @@ public class Shifr {
             return symbol;
         }
     }
-    public static void main(String[] args) throws IOException {
+    public static String code() throws IOException {
         Path path = Path.of("D:\\Nataliya\\myprogect\\project1\\text.txt");
         String text = Files.readString(path);
         System.out.println(text);
         int key = 5;
-      try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text2.txt")))
-      {
-          for (int i = 0; i < text.length(); i++) {
-              String text2 = String.valueOf(shifrText(text.charAt(i), key));
-              System.out.print(text2);
-              bufferedWriter.write(text2, 0, text2.length());
-              bufferedWriter.flush();
-          }
-      }
+        String text2 = null;
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\text2.txt"))) {
+            for (int i = 0; i < text.length(); i++) {
+                text2 = String.valueOf(shifrText(text.charAt(i), key));
+                System.out.print(text2);
+                bufferedWriter.write(text2, 0, text2.length());
+                bufferedWriter.flush();
+            }
+        }
+
+        return text2;
     }
 }

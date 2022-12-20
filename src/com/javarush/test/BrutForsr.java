@@ -1,4 +1,4 @@
-package com.javarush.test;
+        package com.javarush.test;
 
         import java.io.IOException;
         import java.io.*;
@@ -6,33 +6,35 @@ package com.javarush.test;
         import java.nio.file.Path;
 
 public class BrutForsr {
-
     public static void main(String[] args) throws IOException {
         Path path = Path.of("D:\\Nataliya\\myprogect\\project1\\text2.txt");
         String text = Files.readString(path);
         System.out.println(text);
-       // System.out.println("Записывает, в целевой объект все незаписанные данные.");
+        // System.out.println("Записывает, в целевой объект все незаписанные данные.");
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:\\Nataliya\\myprogect\\project1\\textnew.txt"))) {
             StringBuilder builder = new StringBuilder();
-                for (int j = 0; j < Shifr.symbolForShifr.length(); j++) {
-                    for (int i = 0; i < text.length(); i++) {
-                        builder.append(String.valueOf(Shifr.shifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
+
+            for (int j = 0; j < Shifr.symbolForShifr.length(); j++) {
+                for (int i = 0; i < text.length(); i++) {
+                    builder.append(String.valueOf(Shifr.shifrText(text.charAt(i), Shifr.symbolForShifr.length() - (j % Shifr.symbolForShifr.length()))));
+                }
+                String result = builder.toString();
+                builder.delete(0, result.length());
+                for (int i = 0; i < result.length() - 1; i++) {
+                    if (result.charAt(i) == ',' && result.charAt(i + 1) == ' ') {
+                        if (result.contains(" ") && result.endsWith(".") && !Character.isLowerCase(result.charAt(0)) && !Character.isUpperCase(result.charAt(text.length() - 1))) {
+                            System.out.print(result);
+                            bufferedWriter.write(result, 0, result.length());
+                            bufferedWriter.flush();
+                        } else {
+                            continue;
+                        }
+
                     }
-                    String result = builder.toString();
-                    builder.delete(0, result.length());
-                    char ch = result.charAt(0);
-                for (int i = 0; i < result.length()-1; i++)
-                  if (result.charAt(i)==',' && result.charAt(i+1)==' '){
-                     if  (result.contains(" ") && result.endsWith(".") && result.contains("объект") && !Character.isLowerCase(ch) &&!Character.isUpperCase(result.charAt(text.length()-1))) {
-                    System.out.print(result);
-                    bufferedWriter.write(result, 0, result.length());
-                    bufferedWriter.flush();
-                } }else {
-                       continue;
-                    }
-               }
+                }
+            }
+
+
         }
     }
 }
-
-
